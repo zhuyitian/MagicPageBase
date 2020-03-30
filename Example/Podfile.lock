@@ -1,0 +1,16 @@
+PODS:
+  - MagicPageBase (0.1.0)
+
+DEPENDENCIES:
+  - MagicPageBase (from `../`)
+
+EXTERNAL SOURCES:
+  MagicPageBase:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MagicPageBase: 9b44b950b2f90f60355aa88e40160e9b60af1ba5
+
+PODFILE CHECKSUM: 2327892f40b5e519f117cc8f874d4ab1581362e2
+
+COCOAPODS: 1.9.1

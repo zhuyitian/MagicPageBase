@@ -1,0 +1,22 @@
+{
+  "name": "MagicPageBase",
+  "version": "0.1.0",
+  "summary": "A short description of MagicPageBase.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/359079097@qq.com/MagicPageBase",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "359079097@qq.com": "zhuyitian@hashxy.com"
+  },
+  "source": {
+    "git": "https://github.com/359079097@qq.com/MagicPageBase.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "MagicPageBase/Classes/**/*"
+}
