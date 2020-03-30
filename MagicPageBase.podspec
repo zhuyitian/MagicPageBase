@@ -18,14 +18,14 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-  this is Amazing page.
+  this is Amazing page. you unknowed what you see.
                        DESC
 
-  s.homepage         = 'https://github.com/359079097@qq.com/MagicPageBase'
+  s.homepage         = 'https://github.com/zhuyitian/MagicPageBase'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Talan' => '16657120403@163.com' }
-  s.source           = { :git => 'https://github.com/359079097@qq.com/MagicPageBase.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/zhuyitian/MagicPageBase.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '10.0'
