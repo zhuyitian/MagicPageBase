@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '10.0'
 
-  s.source_files = 'Classes/BaseTab/**/*.swift'
+  s.source_files = 'MagicPageBase/Classes/BaseTab/**/*.swift'
   
   s.requires_arc = true
   
