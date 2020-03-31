@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MagicPageBase'
-  s.version          = '1.1'
+  s.version          = '2.0'
   s.summary          = 'Amazing MagicPageBase.'
 
 # This description is used to generate tags and improve search results.
@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '10.0'
 
-  s.source_files = 'MagicPageBase/Classes/BaseTab/**/*.swift'
+  s.source_files = 'Classes/BaseTab/**/*.swift'
   
   s.requires_arc = true
   
