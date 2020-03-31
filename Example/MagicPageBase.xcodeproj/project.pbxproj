@@ -13,7 +13,6 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		B8D4F816BEDC61952412A734 /* Pods_MagicPageBase_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D046336AF06D3BCD064F5DA4 /* Pods_MagicPageBase_Example.framework */; };
-		D14751AB80D20222DCB47DF3 /* Pods_MagicPageBase_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DF239B9566E65AA8F5A0170 /* Pods_MagicPageBase_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,8 +26,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04BADA99C736BAE5599FD88B /* Pods-MagicPageBase_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicPageBase_Tests.debug.xcconfig"; path = "Target Support Files/Pods-MagicPageBase_Tests/Pods-MagicPageBase_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		0DF239B9566E65AA8F5A0170 /* Pods_MagicPageBase_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MagicPageBase_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		415E597F453AC0462A41972C /* Pods-MagicPageBase_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicPageBase_Example.release.xcconfig"; path = "Target Support Files/Pods-MagicPageBase_Example/Pods-MagicPageBase_Example.release.xcconfig"; sourceTree = "<group>"; };
 		4705691662A3DA529F8D033F /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* MagicPageBase_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MagicPageBase_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,7 +40,6 @@
 		981FC34FCA5E508C8FA46410 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		A501F580A5BF9E6D9AF5460A /* Pods-MagicPageBase_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicPageBase_Example.debug.xcconfig"; path = "Target Support Files/Pods-MagicPageBase_Example/Pods-MagicPageBase_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D046336AF06D3BCD064F5DA4 /* Pods_MagicPageBase_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MagicPageBase_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		D671187D744E50BD04EA534F /* Pods-MagicPageBase_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MagicPageBase_Tests.release.xcconfig"; path = "Target Support Files/Pods-MagicPageBase_Tests/Pods-MagicPageBase_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +55,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D14751AB80D20222DCB47DF3 /* Pods_MagicPageBase_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,7 +117,6 @@
 			isa = PBXGroup;
 			children = (
 				D046336AF06D3BCD064F5DA4 /* Pods_MagicPageBase_Example.framework */,
-				0DF239B9566E65AA8F5A0170 /* Pods_MagicPageBase_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -132,8 +126,6 @@
 			children = (
 				A501F580A5BF9E6D9AF5460A /* Pods-MagicPageBase_Example.debug.xcconfig */,
 				415E597F453AC0462A41972C /* Pods-MagicPageBase_Example.release.xcconfig */,
-				04BADA99C736BAE5599FD88B /* Pods-MagicPageBase_Tests.debug.xcconfig */,
-				D671187D744E50BD04EA534F /* Pods-MagicPageBase_Tests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -165,7 +157,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "MagicPageBase_Tests" */;
 			buildPhases = (
-				BEFA26B218C60CEA85D0BCAC /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
@@ -290,28 +281,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MagicPageBase_Example/Pods-MagicPageBase_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BEFA26B218C60CEA85D0BCAC /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MagicPageBase_Tests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D69397E5B034C1DABF363D79 /* [CP] Check Pods Manifest.lock */ = {
@@ -538,7 +507,6 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 04BADA99C736BAE5599FD88B /* Pods-MagicPageBase_Tests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
@@ -560,7 +528,6 @@
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D671187D744E50BD04EA534F /* Pods-MagicPageBase_Tests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",

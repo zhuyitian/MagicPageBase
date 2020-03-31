@@ -1,11 +1,7 @@
 use_frameworks!
 
+
 target 'MagicPageBase_Example' do
   pod 'MagicPageBase', :path => '../'
 
-  target 'MagicPageBase_Tests' do
-    inherit! :search_paths
-
-    
-  end
 end
