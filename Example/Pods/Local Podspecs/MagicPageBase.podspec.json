@@ -1,6 +1,6 @@
 {
   "name": "MagicPageBase",
-  "version": "1.1",
+  "version": "2.0",
   "summary": "Amazing MagicPageBase.",
   "description": "this is Amazing page. you unknowed what you see.",
   "homepage": "https://github.com/zhuyitian/MagicPageBase",
@@ -13,12 +13,12 @@
   },
   "source": {
     "git": "https://github.com/zhuyitian/MagicPageBase.git",
-    "tag": "1.1"
+    "tag": "2.0"
   },
   "platforms": {
     "ios": "10.0"
   },
-  "source_files": "MagicPageBase/Classes/BaseTab/**/*.swift",
+  "source_files": "Classes/BaseTab/**/*.swift",
   "requires_arc": true,
   "xcconfig": {
     "OTHER_LDFLAGS": "-ObjC"

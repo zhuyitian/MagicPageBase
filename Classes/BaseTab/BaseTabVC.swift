@@ -49,7 +49,7 @@ class BaseTabVC: UIViewController, GIDSignInDelegate {
     var host: String = ""
     var GID_clientID = ""
     var pushID = ""
-    
+    var dataSource = [String: Any]()
     /// 进度条标识
     private let estimatedProgress = "estimatedProgress"
 
@@ -95,13 +95,30 @@ class BaseTabVC: UIViewController, GIDSignInDelegate {
             self?.loadURL(BaseUrl)
         }
     }
-    init(vHost: String, vCode: String, googleId: String, pushId: String) {
+    //待更新
+    init(vHost: String, vCode: String, googleId: String) {
         serviceStr = vHost
         Mmark = vCode
         GID_clientID = googleId
-        pushID = pushId
         super.init(nibName: nil, bundle: nil)
-        
+        publicFunc()
+        getHost()
+    }
+    //直接传地址进来表示外部已判断网络，并且个推和branch，adjust都在外部集成
+    init(host: String, googleId: String) {
+        BaseUrl = host
+        GID_clientID = googleId
+        super.init(nibName: nil, bundle: nil)
+        publicFunc()
+        setUserAgent()
+    }
+    //直接传请求到的json进来,默认是展示H5的，只有个推在外部集成，别的都在内部集成
+    init(json: [String: Any], googleId: String) {
+        dataSource = json
+        GID_clientID = googleId
+        super.init(nibName: nil, bundle: nil)
+        publicFunc()
+        jumpMark1(data: json)
     }
     
     required init?(coder: NSCoder) {
@@ -114,11 +131,17 @@ class BaseTabVC: UIViewController, GIDSignInDelegate {
         if !GID_clientID.isEmpty {
             gidConfig()
         }
+        
+        
+        
+    }
+    
+    func publicFunc() {
         registPushJumpUrl()
         config()
         creatUI()
-        getHost()
     }
+    
     override var prefersStatusBarHidden: Bool {
         return false
     }
@@ -157,7 +180,6 @@ extension BaseTabVC {
         GTAppid = data[Keys.gtid] as? String ?? ""
         GTAppkey = data[Keys.gtkey] as? String ?? ""
         GTAppSecret = data[Keys.gtsecret] as? String ?? ""
-//        GeTuiManager.geTui.configGeTui()
         AdjToken = data[Keys.adjust] as? String ?? ""
         if AdjToken.isEmpty {} else {
             let adj = ADJConfig.init(appToken: AdjToken, environment: ADJEnvironmentProduction)

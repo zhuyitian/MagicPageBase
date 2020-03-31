@@ -43,7 +43,7 @@ PODS:
   - Kingfisher (5.13.2):
     - Kingfisher/Core (= 5.13.2)
   - Kingfisher/Core (5.13.2)
-  - MagicPageBase (1.1):
+  - MagicPageBase (2.0):
     - Adjust
     - Alamofire
     - Branch
@@ -134,7 +134,7 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
   GTSDK: 574d9067cd7e506dafc664801352a77e8214d1e0
   Kingfisher: d342c8354c10c3d85a27d6d4c42c41285924b898
-  MagicPageBase: ef5984ec668047de50046fd83b9cb2869a19f542
+  MagicPageBase: c2356d416653a93b1129141ecc6d07317cc56076
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
