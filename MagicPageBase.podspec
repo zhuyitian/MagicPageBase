@@ -30,15 +30,19 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '10.0'
 
-  s.source_files = 'MagicPageBase/Classes/**/*'
+  s.source_files = 'MagicPageBase/Classes/**/*.swift'
   s.requires_arc = true
+  
+  s.xcconfig = {'OTHER_LDFLAGS' => '-ObjC'}
   
   # s.resource_bundles = {
   #   'MagicPageBase' => ['MagicPageBase/Assets/*.png']
   # }
 
+#  s.public_header_files = 'MagicPageBase/Classes/BaseTab/BridgingHeader.h'
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'SafariServices', 'SystemConfiguration', 'LocalAuthentication', 'iAd', 'AdSupport'
+  s.swift_version = '4.2'
   # s.dependency 'AFNetworking', '~> 2.3'
   s.dependency 'Alamofire'
   s.dependency 'Moya/RxSwift'
@@ -56,6 +60,6 @@ Pod::Spec.new do |s|
   s.dependency 'RxSwift'
   s.dependency 'SwifterSwift'
   s.dependency 'SwiftyJSON'
-  
+  s.static_framework = true
   
 end

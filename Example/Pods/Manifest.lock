@@ -1,15 +1,146 @@
 PODS:
-  - MagicPageBase (0.1.0)
+  - Adjust (4.21.0):
+    - Adjust/Core (= 4.21.0)
+  - Adjust/Core (4.21.0)
+  - Alamofire (5.0.5)
+  - AppAuth (1.3.0):
+    - AppAuth/Core (= 1.3.0)
+    - AppAuth/ExternalUserAgent (= 1.3.0)
+  - AppAuth/Core (1.3.0)
+  - AppAuth/ExternalUserAgent (1.3.0)
+  - Branch (0.32.0):
+    - Branch/Core (= 0.32.0)
+  - Branch/Core (0.32.0)
+  - FBSDKCoreKit (5.15.1):
+    - FBSDKCoreKit/Basics (= 5.15.1)
+    - FBSDKCoreKit/Core (= 5.15.1)
+  - FBSDKCoreKit/Basics (5.15.1)
+  - FBSDKCoreKit/Core (5.15.1):
+    - FBSDKCoreKit/Basics
+  - FBSDKLoginKit (5.15.1):
+    - FBSDKLoginKit/Login (= 5.15.1)
+  - FBSDKLoginKit/Login (5.15.1):
+    - FBSDKCoreKit (~> 5.0)
+  - FBSDKPlacesKit (5.15.0):
+    - FBSDKCoreKit (~> 5.0)
+  - FBSDKShareKit (5.15.1):
+    - FBSDKShareKit/Share (= 5.15.1)
+  - FBSDKShareKit/Share (5.15.1):
+    - FBSDKCoreKit (~> 5.0)
+  - GoogleSignIn (5.0.2):
+    - AppAuth (~> 1.2)
+    - GTMAppAuth (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GTMAppAuth (1.0.0):
+    - AppAuth/Core (~> 1.0)
+    - GTMSessionFetcher (~> 1.1)
+  - GTMSessionFetcher (1.3.1):
+    - GTMSessionFetcher/Full (= 1.3.1)
+  - GTMSessionFetcher/Core (1.3.1)
+  - GTMSessionFetcher/Full (1.3.1):
+    - GTMSessionFetcher/Core (= 1.3.1)
+  - GTSDK (2.4.1.0)
+  - Kingfisher (5.13.2):
+    - Kingfisher/Core (= 5.13.2)
+  - Kingfisher/Core (5.13.2)
+  - MagicPageBase (1.0):
+    - Adjust
+    - Alamofire
+    - Branch
+    - FBSDKCoreKit
+    - FBSDKLoginKit
+    - FBSDKPlacesKit
+    - FBSDKShareKit
+    - GoogleSignIn
+    - GTSDK
+    - Kingfisher
+    - Moya/RxSwift
+    - RxSwift
+    - SnapKit
+    - SwifterSwift
+    - SwiftyJSON
+    - WebViewJavascriptBridge
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
+  - Moya/RxSwift (14.0.0):
+    - Moya/Core
+    - RxSwift (~> 5.0)
+  - RxSwift (5.1.1)
+  - SnapKit (5.0.1)
+  - SwifterSwift (5.1.0):
+    - SwifterSwift/AppKit (= 5.1.0)
+    - SwifterSwift/CoreGraphics (= 5.1.0)
+    - SwifterSwift/CoreLocation (= 5.1.0)
+    - SwifterSwift/Dispatch (= 5.1.0)
+    - SwifterSwift/Foundation (= 5.1.0)
+    - SwifterSwift/MapKit (= 5.1.0)
+    - SwifterSwift/SceneKit (= 5.1.0)
+    - SwifterSwift/SpriteKit (= 5.1.0)
+    - SwifterSwift/SwiftStdlib (= 5.1.0)
+    - SwifterSwift/UIKit (= 5.1.0)
+  - SwifterSwift/AppKit (5.1.0)
+  - SwifterSwift/CoreGraphics (5.1.0)
+  - SwifterSwift/CoreLocation (5.1.0)
+  - SwifterSwift/Dispatch (5.1.0)
+  - SwifterSwift/Foundation (5.1.0)
+  - SwifterSwift/MapKit (5.1.0)
+  - SwifterSwift/SceneKit (5.1.0)
+  - SwifterSwift/SpriteKit (5.1.0)
+  - SwifterSwift/SwiftStdlib (5.1.0)
+  - SwifterSwift/UIKit (5.1.0)
+  - SwiftyJSON (5.0.0)
+  - WebViewJavascriptBridge (6.0.3)
 
 DEPENDENCIES:
   - MagicPageBase (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Adjust
+    - Alamofire
+    - AppAuth
+    - Branch
+    - FBSDKCoreKit
+    - FBSDKLoginKit
+    - FBSDKPlacesKit
+    - FBSDKShareKit
+    - GoogleSignIn
+    - GTMAppAuth
+    - GTMSessionFetcher
+    - GTSDK
+    - Kingfisher
+    - Moya
+    - RxSwift
+    - SnapKit
+    - SwifterSwift
+    - SwiftyJSON
+    - WebViewJavascriptBridge
 
 EXTERNAL SOURCES:
   MagicPageBase:
     :path: "../"
 
 SPEC CHECKSUMS:
-  MagicPageBase: 9b44b950b2f90f60355aa88e40160e9b60af1ba5
+  Adjust: 7091afbeb9935103636f80f73742d21a83e085ae
+  Alamofire: df2f8f826963b08b9a870791ad48e07a10090b2e
+  AppAuth: 73574f3013a1e65b9601a3ddc8b3158cce68c09d
+  Branch: 770a23c04d3f5410cf9231db099a444dd3060784
+  FBSDKCoreKit: 1d5acf7c9d7a2f92bb1a242dc60cae5b7adb91df
+  FBSDKLoginKit: f1ea8026a58b52d30c9f2e6a58ca7d813619fb83
+  FBSDKPlacesKit: 26d4033cb8cc8640f1e0eadb3635e7dd29c4d073
+  FBSDKShareKit: 259737eab3cc807087374553abdf588b3096ba55
+  GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
+  GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
+  GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
+  GTSDK: 574d9067cd7e506dafc664801352a77e8214d1e0
+  Kingfisher: d342c8354c10c3d85a27d6d4c42c41285924b898
+  MagicPageBase: 6704621fce97a214dc480f06d3775d3ede0ef98c
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwifterSwift: a9e8e144832638c2850b43da5feaf9598c6ad65b
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  WebViewJavascriptBridge: 7f5bc4d3581e672e8f32bd0f812d54bc69bb8e29
 
 PODFILE CHECKSUM: 2327892f40b5e519f117cc8f874d4ab1581362e2
 

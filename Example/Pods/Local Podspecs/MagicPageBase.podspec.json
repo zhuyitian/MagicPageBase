@@ -1,22 +1,86 @@
 {
   "name": "MagicPageBase",
-  "version": "0.1.0",
-  "summary": "A short description of MagicPageBase.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/359079097@qq.com/MagicPageBase",
+  "version": "1.0",
+  "summary": "Amazing MagicPageBase.",
+  "description": "this is Amazing page. you unknowed what you see.",
+  "homepage": "https://github.com/zhuyitian/MagicPageBase",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
   },
   "authors": {
-    "359079097@qq.com": "zhuyitian@hashxy.com"
+    "Talan": "16657120403@163.com"
   },
   "source": {
-    "git": "https://github.com/359079097@qq.com/MagicPageBase.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/zhuyitian/MagicPageBase.git",
+    "tag": "1.0"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "10.0"
   },
-  "source_files": "MagicPageBase/Classes/**/*"
+  "source_files": "MagicPageBase/Classes/**/*",
+  "requires_arc": true,
+  "xcconfig": {
+    "OTHER_LDFLAGS": "-ObjC"
+  },
+  "frameworks": [
+    "SafariServices",
+    "SystemConfiguration",
+    "LocalAuthentication",
+    "iAd",
+    "AdSupport"
+  ],
+  "swift_versions": "4.2",
+  "dependencies": {
+    "Alamofire": [
+
+    ],
+    "Moya/RxSwift": [
+
+    ],
+    "Kingfisher": [
+
+    ],
+    "WebViewJavascriptBridge": [
+
+    ],
+    "SnapKit": [
+
+    ],
+    "GTSDK": [
+
+    ],
+    "GoogleSignIn": [
+
+    ],
+    "FBSDKCoreKit": [
+
+    ],
+    "FBSDKLoginKit": [
+
+    ],
+    "FBSDKShareKit": [
+
+    ],
+    "FBSDKPlacesKit": [
+
+    ],
+    "Adjust": [
+
+    ],
+    "Branch": [
+
+    ],
+    "RxSwift": [
+
+    ],
+    "SwifterSwift": [
+
+    ],
+    "SwiftyJSON": [
+
+    ]
+  },
+  "static_framework": true,
+  "swift_version": "4.2"
 }
