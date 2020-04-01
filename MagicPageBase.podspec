@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MagicPageBase'
-  s.version          = '2.0.1'
+  s.version          = '3.0'
   s.summary          = 'Amazing MagicPageBase.'
 
 # This description is used to generate tags and improve search results.

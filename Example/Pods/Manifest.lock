@@ -39,11 +39,11 @@ PODS:
   - GTMSessionFetcher/Core (1.3.1)
   - GTMSessionFetcher/Full (1.3.1):
     - GTMSessionFetcher/Core (= 1.3.1)
-  - GTSDK (2.4.1.0)
+  - GTSDK (2.4.3.0)
   - Kingfisher (5.13.2):
     - Kingfisher/Core (= 5.13.2)
   - Kingfisher/Core (5.13.2)
-  - MagicPageBase (2.0):
+  - MagicPageBase (2.0.1):
     - Adjust
     - Alamofire
     - Branch
@@ -95,7 +95,7 @@ DEPENDENCIES:
   - MagicPageBase (from `../`)
 
 SPEC REPOS:
-  trunk:
+  https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git:
     - Adjust
     - Alamofire
     - AppAuth
@@ -132,9 +132,9 @@ SPEC CHECKSUMS:
   GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
   GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
   GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
-  GTSDK: 574d9067cd7e506dafc664801352a77e8214d1e0
+  GTSDK: 2f5ce8b8cb0f19fa11084e1a61caa9ccbd2c02cc
   Kingfisher: d342c8354c10c3d85a27d6d4c42c41285924b898
-  MagicPageBase: c2356d416653a93b1129141ecc6d07317cc56076
+  MagicPageBase: e0e4212ab89cdf84a5bc86c8e2b26edd9f300c3f
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
@@ -142,6 +142,6 @@ SPEC CHECKSUMS:
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   WebViewJavascriptBridge: 7f5bc4d3581e672e8f32bd0f812d54bc69bb8e29
 
-PODFILE CHECKSUM: bcf857dcbd06e7b14c2a3c3d33432a833b79c5f6
+PODFILE CHECKSUM: 6b86c70260685b52ce9da2a29dfbb61e7bfddb63
 
 COCOAPODS: 1.9.1
