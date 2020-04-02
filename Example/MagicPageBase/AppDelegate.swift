@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow.init(frame: UIScreen.main.bounds)
 //        let vc = BaseTabVC.init(host: "https://www.baidu.com", googleId: "")
 //        window?.rootViewController = vc
-        BaseTabVC.init(json: <#T##[String : Any]#>, googleId: <#T##String#>)
+//        BaseTabVC.init(json: <#T##[String : Any]#>, googleId: <#T##String#>)
         window?.makeKeyAndVisible()
         
         return true

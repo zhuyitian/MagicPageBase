@@ -21,7 +21,7 @@ public struct Keys {
 
 var BaseUrl: String = UserDefaults.standard.value(forKey: "baseurl") as? String ?? ""
 
-var Mmark = "RAOZXCJE"
+var Mmark = ""
 
 
 
