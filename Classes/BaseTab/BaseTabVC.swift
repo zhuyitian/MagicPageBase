@@ -16,7 +16,7 @@ import Branch
 let noti_jumpUrl = NSNotification.Name.init("jumpUrl")
 
 
-class BaseTabVC: UIViewController, GIDSignInDelegate {
+public class BaseTabVC: UIViewController, GIDSignInDelegate {
 
     deinit {
         if webView.uiDelegate != nil {
@@ -95,8 +95,8 @@ class BaseTabVC: UIViewController, GIDSignInDelegate {
             self?.loadURL(BaseUrl)
         }
     }
-    //待更新
-    init(vHost: String, vCode: String, googleId: String) {
+    /// 待更新
+    public init(vHost: String, vCode: String, googleId: String) {
         serviceStr = vHost
         Mmark = vCode
         GID_clientID = googleId
@@ -104,16 +104,16 @@ class BaseTabVC: UIViewController, GIDSignInDelegate {
         publicFunc()
         getHost()
     }
-    //直接传地址进来表示外部已判断网络，并且个推和branch，adjust都在外部集成
-    init(host: String, googleId: String) {
+    /// 直接传业务地址进来表示外部已判断网络，并且个推和branch，adjust都在外部集成
+    public init(host: String, googleId: String) {
         BaseUrl = host
         GID_clientID = googleId
         super.init(nibName: nil, bundle: nil)
         publicFunc()
         setUserAgent()
     }
-    //直接传请求到的json进来,默认是展示H5的，只有个推在外部集成，别的都在内部集成
-    init(json: [String: Any], googleId: String) {
+    /// 直接传请求到的json进来,默认是展示H5的，只有个推在外部集成，别的都在内部集成
+    public init(json: [String: Any], googleId: String) {
         dataSource = json
         GID_clientID = googleId
         super.init(nibName: nil, bundle: nil)
@@ -125,7 +125,7 @@ class BaseTabVC: UIViewController, GIDSignInDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     //MARK: - Override Methods
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         if !GID_clientID.isEmpty {
@@ -142,10 +142,10 @@ class BaseTabVC: UIViewController, GIDSignInDelegate {
         creatUI()
     }
     
-    override var prefersStatusBarHidden: Bool {
+    public override var prefersStatusBarHidden: Bool {
         return false
     }
-    override var preferredStatusBarStyle: UIStatusBarStyle {
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
         if statusBarIsDefault {
             if #available(iOS 13.0, *) {
                 return .darkContent
@@ -282,7 +282,7 @@ extension BaseTabVC {
         GIDSignIn.sharedInstance()?.presentingViewController = self
     }
     
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+    public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if (error == nil) {
             let dic = [
                 "id": "\(user.userID ?? "")",
@@ -331,14 +331,14 @@ extension BaseTabVC: SharingDelegate {
             }
         }
     }
-    func sharer(_ sharer: Sharing, didCompleteWithResults results: [String : Any]) {
+    public func sharer(_ sharer: Sharing, didCompleteWithResults results: [String : Any]) {
         //成功调接口
         shareSuccess(type: "1")
     }
-    func sharer(_ sharer: Sharing, didFailWithError error: Error) {
+    public func sharer(_ sharer: Sharing, didFailWithError error: Error) {
         //失败调接口
     }
-    func sharerDidCancel(_ sharer: Sharing) {
+    public func sharerDidCancel(_ sharer: Sharing) {
         //取消调接口
     }
     /// 获取idfa
@@ -534,13 +534,13 @@ extension BaseTabVC: UIGestureRecognizerDelegate {
     }
     
     /// 重写系统侧滑返回，解决wk在9.x版本可能出现的侧滑返回加载延迟问题
-    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+    private func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         reload()
         return true
     }
     
     /// KVO监听更新进度条
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == estimatedProgress {
             if let obj = object as? WKWebView, obj == webView {
                 progressView.alpha = 1
@@ -562,12 +562,12 @@ extension BaseTabVC: UIGestureRecognizerDelegate {
 extension BaseTabVC: WKUIDelegate, WKNavigationDelegate {
     
     //MARK: - WKNavigationDelegate
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+    private func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         if webView.title != "undefined" {
             self.title = webView.title
         }
     }
-    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+    private func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         if let openurl = navigationAction.request.url {
             if ("\(openurl)".hasPrefix("https://itunes.apple.com")) || (!"\(openurl)".hasPrefix("http")) {
                 UIApplication.shared.open(openurl, options: [:]) { (finish) in }
@@ -576,7 +576,7 @@ extension BaseTabVC: WKUIDelegate, WKNavigationDelegate {
         decisionHandler(.allow)
     }
     
-    func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+    private func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
         if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
             let card = URLCredential.init(trust: challenge.protectionSpace.serverTrust!)
             completionHandler(URLSession.AuthChallengeDisposition.useCredential, card)
@@ -584,7 +584,7 @@ extension BaseTabVC: WKUIDelegate, WKNavigationDelegate {
     }
     
     //MARK: - WKUIDelegate
-    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
+    private func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
         let alert = UIAlertController.init(title: "提示", message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction.init(title: "确认", style: UIAlertAction.Style.default, handler: { (action) in
             completionHandler()
@@ -593,7 +593,7 @@ extension BaseTabVC: WKUIDelegate, WKNavigationDelegate {
         
     }
     
-    func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
+    private func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
         let alert = UIAlertController.init(title: "提示", message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction.init(title: "取消", style: UIAlertAction.Style.cancel, handler: { (action) in
             completionHandler(false)
@@ -604,7 +604,7 @@ extension BaseTabVC: WKUIDelegate, WKNavigationDelegate {
         present(alert, animated: true, completion: nil)
     }
     
-    func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
+    private func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
         let alert = UIAlertController.init(title: prompt, message: "", preferredStyle: UIAlertController.Style.alert)
         alert.addTextField { (textField) in
             textField.text = defaultText
