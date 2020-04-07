@@ -17,13 +17,10 @@ class AdManager {
             let adView = AdView()
             adView.show()
             adView.skipClosure = { () in
-                print("跳过")
             }
             adView.endCountDownClosure = { () in
-                print("倒计时结束")
             }
             adView.adTapClosure = { () in
-                print("点击广告")
                 let vc = UIApplication.shared.delegate?.window??.rootViewController
                 vc?.present(AdH5Controller(), animated: false, completion: nil)
                 

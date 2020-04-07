@@ -25,7 +25,7 @@ class AdView: UIView {
     private lazy var skipButton: UIButton = {
         let button = UIButton(type: .custom)
         button.frame = CGRect(x: screenWidth - 70, y: UIScreen.statusBarHeight+20, width: 60, height: 30)
-        button.setTitle("\(waitTime) 跳过", for: .normal)
+        button.setTitle("\(waitTime) Close", for: .normal)
         button.setTitleColor(UIColor.white, for: .normal)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 13)
         button.layer.cornerRadius = 15
@@ -87,7 +87,7 @@ private extension AdView {
             }
             duration -= 1
             DispatchQueue.main.async {
-                self.skipButton.setTitle("\(duration) 跳过", for: .normal)
+                self.skipButton.setTitle("\(duration) Close", for: .normal)
             }
         }
         timer?.resume()

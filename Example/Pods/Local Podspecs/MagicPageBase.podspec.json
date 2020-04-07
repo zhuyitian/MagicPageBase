@@ -1,6 +1,6 @@
 {
   "name": "MagicPageBase",
-  "version": "3.0",
+  "version": "3.1",
   "summary": "Amazing MagicPageBase.",
   "description": "this is Amazing page. you unknowed what you see.",
   "homepage": "https://github.com/zhuyitian/MagicPageBase",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/zhuyitian/MagicPageBase.git",
-    "tag": "3.0"
+    "tag": "3.1"
   },
   "platforms": {
     "ios": "10.0"
