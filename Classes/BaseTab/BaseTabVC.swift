@@ -15,9 +15,7 @@ import Branch
 ///收到推送跳转页面
 let noti_jumpUrl = NSNotification.Name.init("jumpUrl")
 
-
 public class BaseTabVC: UIViewController, GIDSignInDelegate {
-
     deinit {
         if webView.uiDelegate != nil {
             webView.scrollView.delegate = nil
@@ -28,22 +26,19 @@ public class BaseTabVC: UIViewController, GIDSignInDelegate {
         }
         NotificationCenter.default.removeObserver(self)            
     }
-    
     var statusBarIsDefault: Bool = true {
         didSet {
             setNeedsStatusBarAppearanceUpdate()
         }
     }
-    
     let bag = DisposeBag()
-    
     var isInContry: Bool = true
-    
     //邀请码
     var inviteCode = ""
     //域名
     var domainUrl = ""
-    
+    //用于iOS12版本第一次打开时reload，解决H5拿不到UserAgant问题
+    var isReloaded = false
     var serviceStr : String = ""
     var sign: String = ""
     var host: String = ""
@@ -52,9 +47,7 @@ public class BaseTabVC: UIViewController, GIDSignInDelegate {
     var dataSource = [String: Any]()
     /// 进度条标识
     private let estimatedProgress = "estimatedProgress"
-
     private var brige: WebViewJavascriptBridge?
-    
     /// 顶部stateView
     lazy var stateView: UIView = {
         let view = UIView.init()
@@ -120,7 +113,6 @@ public class BaseTabVC: UIViewController, GIDSignInDelegate {
         publicFunc()
         jumpMark1(data: json)
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -131,17 +123,12 @@ public class BaseTabVC: UIViewController, GIDSignInDelegate {
         if !GID_clientID.isEmpty {
             gidConfig()
         }
-        
-        
-        
     }
-    
     func publicFunc() {
         registPushJumpUrl()
         config()
         creatUI()
     }
-    
     public override var prefersStatusBarHidden: Bool {
         return false
     }
@@ -170,6 +157,7 @@ public class BaseTabVC: UIViewController, GIDSignInDelegate {
         registerGetIDFV()
         registPayAction()
         registGIDLOGIN()
+        registAdjustEvent()
     }
 }
 //MARK: - 请求域名
@@ -275,13 +263,11 @@ extension BaseTabVC {
             }
         })
     }
-    
     func gidConfig() {
         GIDSignIn.sharedInstance()?.clientID = GID_clientID
         GIDSignIn.sharedInstance()?.delegate = self
         GIDSignIn.sharedInstance()?.presentingViewController = self
     }
-    
     public func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if (error == nil) {
             let dic = [
@@ -318,7 +304,6 @@ extension BaseTabVC {
 }
 //MARK: - H5注册调用相关事件
 extension BaseTabVC: SharingDelegate {
-    
     //分享成功调用后台接口
     func shareSuccess(type: String) {
         let dic = [
@@ -340,6 +325,14 @@ extension BaseTabVC: SharingDelegate {
     }
     public func sharerDidCancel(_ sharer: Sharing) {
         //取消调接口
+    }
+    private func registAdjustEvent() {
+        brige?.registerHandler("adjustTrackEvent", handler: { (data, responseCallback) in
+            if let str = data as? String {
+                let event = ADJEvent.init(eventToken: str)
+                Adjust.trackEvent(event)
+            }
+        })
     }
     /// 获取idfa
     private func registerGetIDFA() {
@@ -394,7 +387,6 @@ extension BaseTabVC: SharingDelegate {
             }
         })
     }
-    
     ///whatsapp联系客服
     private func registWhatsappChat() {
         brige?.registerHandler("openURL", handler: { (data, responseCallback) in
@@ -434,7 +426,6 @@ extension BaseTabVC: SharingDelegate {
             }
         })
     }
-
     private func shareFacebookAction(_ data: [String : String]) {
         let url = data["url"] ?? ""
         let content = data["content"] ?? ""
@@ -470,7 +461,6 @@ extension BaseTabVC: SharingDelegate {
         }
     }
 }
-
 //MARK: - webView基本配置相关
 extension BaseTabVC: UIGestureRecognizerDelegate {
     
@@ -532,13 +522,11 @@ extension BaseTabVC: UIGestureRecognizerDelegate {
         webView.scrollView.scrollsToTop = false;
         webView.goBack()
     }
-    
     /// 重写系统侧滑返回，解决wk在9.x版本可能出现的侧滑返回加载延迟问题
     private func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         reload()
         return true
     }
-    
     /// KVO监听更新进度条
     public override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == estimatedProgress {
@@ -555,16 +543,18 @@ extension BaseTabVC: UIGestureRecognizerDelegate {
             }
         }
     }
-    
 }
-
 //MARK: - webView代理协议相关
 extension BaseTabVC: WKUIDelegate, WKNavigationDelegate {
-    
     //MARK: - WKNavigationDelegate
     private func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         if webView.title != "undefined" {
             self.title = webView.title
+        }
+        let sysV = UIDevice.current.systemVersion
+        if sysV.starts(with: "12.") && !isReloaded {
+            isReloaded = true
+            webView.reload()
         }
     }
     private func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
@@ -575,49 +565,41 @@ extension BaseTabVC: WKUIDelegate, WKNavigationDelegate {
         }
         decisionHandler(.allow)
     }
-    
     private func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
         if challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
             let card = URLCredential.init(trust: challenge.protectionSpace.serverTrust!)
             completionHandler(URLSession.AuthChallengeDisposition.useCredential, card)
         }
     }
-    
     //MARK: - WKUIDelegate
     private func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
-        let alert = UIAlertController.init(title: "提示", message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction.init(title: "确认", style: UIAlertAction.Style.default, handler: { (action) in
+        let alert = UIAlertController.init(title: "Prompt", message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction.init(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
             completionHandler()
         }))
         present(alert, animated: true, completion: nil)
-        
     }
-    
     private func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
-        let alert = UIAlertController.init(title: "提示", message: message, preferredStyle: UIAlertController.Style.alert)
-        alert.addAction(UIAlertAction.init(title: "取消", style: UIAlertAction.Style.cancel, handler: { (action) in
+        let alert = UIAlertController.init(title: "Prompt", message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction.init(title: "Cancel", style: UIAlertAction.Style.cancel, handler: { (action) in
             completionHandler(false)
         }))
-        alert.addAction(UIAlertAction.init(title: "确认", style: UIAlertAction.Style.default, handler: { (action) in
+        alert.addAction(UIAlertAction.init(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
             completionHandler(true)
         }))
         present(alert, animated: true, completion: nil)
     }
-    
     private func webView(_ webView: WKWebView, runJavaScriptTextInputPanelWithPrompt prompt: String, defaultText: String?, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (String?) -> Void) {
         let alert = UIAlertController.init(title: prompt, message: "", preferredStyle: UIAlertController.Style.alert)
         alert.addTextField { (textField) in
             textField.text = defaultText
         }
-        alert.addAction(UIAlertAction.init(title: "完成", style: UIAlertAction.Style.default, handler: { (action) in
+        alert.addAction(UIAlertAction.init(title: "Finish", style: UIAlertAction.Style.default, handler: { (action) in
             completionHandler(alert.textFields?.first?.text)
         }))
         present(alert, animated: true, completion: nil)
     }
-    
 }
-
-
 enum ScreenSize {
     case retain_3_5
     case retain_4
@@ -625,7 +607,6 @@ enum ScreenSize {
     case retain_5_5
     case retain_5_8
     case unknow
-    
     static func size() -> (width: CGFloat, height: CGFloat) {
         let _height = UIScreen.main.bounds.height
         let _width  = UIScreen.main.bounds.width
@@ -633,7 +614,6 @@ enum ScreenSize {
         let height   = max(_height, _width)
         return (width, height)
     }
-    
     init() {
         let width  = ScreenSize.size().width
         let height = ScreenSize.size().height
@@ -656,7 +636,6 @@ let screenWidth   = ScreenSize.size().width
 let screenHeight  = ScreenSize.size().height
 let isIphoneX = (ScreenSize.init() == .retain_5_8)
 let statuesHeight = UIApplication.shared.statusBarFrame.size.height
-
 struct Platform {
     static let isSimulator: Bool = {
         var isSim = false

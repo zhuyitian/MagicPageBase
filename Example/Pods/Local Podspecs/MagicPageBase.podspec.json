@@ -41,13 +41,7 @@
     "Kingfisher": [
 
     ],
-    "WebViewJavascriptBridge": [
-
-    ],
     "SnapKit": [
-
-    ],
-    "GTSDK": [
 
     ],
     "GoogleSignIn": [
@@ -78,6 +72,9 @@
 
     ],
     "SwiftyJSON": [
+
+    ],
+    "Firebase/Analytics": [
 
     ]
   },

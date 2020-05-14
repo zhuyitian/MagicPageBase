@@ -48,9 +48,9 @@ Pod::Spec.new do |s|
   s.dependency 'Alamofire'
   s.dependency 'Moya/RxSwift'
   s.dependency 'Kingfisher'
-  s.dependency 'WebViewJavascriptBridge'
+#  s.dependency 'WebViewJavascriptBridge'
   s.dependency 'SnapKit'
-  s.dependency 'GTSDK'
+#  s.dependency 'GTSDK'
   s.dependency 'GoogleSignIn'
   s.dependency 'FBSDKCoreKit'
   s.dependency 'FBSDKLoginKit'
@@ -61,6 +61,7 @@ Pod::Spec.new do |s|
   s.dependency 'RxSwift'
   s.dependency 'SwifterSwift'
   s.dependency 'SwiftyJSON'
+  s.dependency 'Firebase/Analytics'
   s.static_framework = true
   
 end
