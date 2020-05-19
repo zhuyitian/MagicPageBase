@@ -101,10 +101,11 @@ PODS:
   - GTMSessionFetcher/Core (1.4.0)
   - GTMSessionFetcher/Full (1.4.0):
     - GTMSessionFetcher/Core (= 1.4.0)
+  - GTSDK (2.4.4.0)
   - Kingfisher (5.14.0):
     - Kingfisher/Core (= 5.14.0)
   - Kingfisher/Core (5.14.0)
-  - MagicPageBase (3.1):
+  - MagicPageBase (4.0):
     - Adjust
     - Alamofire
     - Branch
@@ -114,6 +115,7 @@ PODS:
     - FBSDKShareKit
     - Firebase/Analytics
     - GoogleSignIn
+    - GTSDK
     - Kingfisher
     - Moya/RxSwift
     - RxSwift
@@ -188,6 +190,7 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMAppAuth
     - GTMSessionFetcher
+    - GTSDK
     - Kingfisher
     - Moya
     - nanopb
@@ -224,8 +227,9 @@ SPEC CHECKSUMS:
   GoogleUtilities: 39530bc0ad980530298e9c4af8549e991fd033b1
   GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
+  GTSDK: 2d7b906892fe7800c72e193e59d92067ed105e80
   Kingfisher: 7b64389a43139c903ec434788344c288217c792d
-  MagicPageBase: e335cdfd458cffc709a21dc38a1b51ac11b761f8
+  MagicPageBase: f7f7ee1598ed863360c26a3571342a8387ea8f86
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
   PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
