@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MagicPageBase'
-  s.version          = '4.2'
+  s.version          = '4.3'
   s.summary          = 'Amazing MagicPageBase.'
 
 # This description is used to generate tags and improve search results.
@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
   s.source_files = 'Classes/BaseTab/**/*.swift'
   
   # 公开头文件 打包只公开特定的头文件
-  s.public_header_files = 'Pod/GTSDK/GTSDK.framework/Headers/GeTuiSdk.h'
+  s.public_header_files = 'Classes/BaseTab/GTSDK.framework/Headers/GeTuiSdk.h'
   
   s.requires_arc = true
   
@@ -53,7 +53,7 @@ Pod::Spec.new do |s|
   s.dependency 'Kingfisher'
 #  s.dependency 'WebViewJavascriptBridge'
   s.dependency 'SnapKit'
-  s.dependency 'GTSDK'
+#  s.dependency 'GTSDK'
   s.dependency 'GoogleSignIn'
   s.dependency 'FBSDKCoreKit'
   s.dependency 'FBSDKLoginKit'

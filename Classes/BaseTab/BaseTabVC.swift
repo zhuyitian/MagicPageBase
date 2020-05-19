@@ -11,7 +11,7 @@ import AdSupport
 import GoogleSignIn
 import FBSDKCoreKit
 import Branch
-import GTMSessionFetcher
+
 
 ///收到推送跳转页面
 let noti_jumpUrl = NSNotification.Name.init("jumpUrl")
@@ -97,6 +97,7 @@ public class BaseTabVC: UIViewController, GIDSignInDelegate {
         super.init(nibName: nil, bundle: nil)
         publicFunc()
         getHost()
+        
     }
     /// 直接传业务地址进来表示外部已判断网络，并且个推和branch，adjust都在外部集成
     public init(host: String, googleId: String) {
