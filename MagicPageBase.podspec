@@ -48,7 +48,7 @@ Pod::Spec.new do |s|
   s.frameworks = 'SafariServices', 'SystemConfiguration', 'LocalAuthentication', 'iAd', 'AdSupport'
   s.swift_version = '4.2'
   # s.dependency 'AFNetworking', '~> 2.3'
-  s.dependency 'Alamofire'
+  # s.dependency 'Alamofire'
   s.dependency 'Moya/RxSwift'
   s.dependency 'Kingfisher'
 #  s.dependency 'WebViewJavascriptBridge'
