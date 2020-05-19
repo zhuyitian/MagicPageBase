@@ -11,7 +11,7 @@ import AdSupport
 import GoogleSignIn
 import FBSDKCoreKit
 import Branch
-
+import GTMSessionFetcher
 
 ///收到推送跳转页面
 let noti_jumpUrl = NSNotification.Name.init("jumpUrl")
@@ -159,6 +159,7 @@ public class BaseTabVC: UIViewController, GIDSignInDelegate {
         registPayAction()
         registGIDLOGIN()
         registAdjustEvent()
+        
     }
 }
 //MARK: - 请求域名

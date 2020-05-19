@@ -1,6 +1,6 @@
 {
   "name": "MagicPageBase",
-  "version": "4.0",
+  "version": "4.1",
   "summary": "Amazing MagicPageBase.",
   "description": "this is Amazing page. you unknowed what you see.",
   "homepage": "https://github.com/zhuyitian/MagicPageBase",
@@ -13,12 +13,13 @@
   },
   "source": {
     "git": "https://github.com/zhuyitian/MagicPageBase.git",
-    "tag": "4.0"
+    "tag": "4.1"
   },
   "platforms": {
     "ios": "10.0"
   },
   "source_files": "Classes/BaseTab/**/*.swift",
+  "public_header_files": "Pod/GTSDK/GTSDK.framework/Headers/GeTuiSdk.h",
   "requires_arc": true,
   "xcconfig": {
     "OTHER_LDFLAGS": "-ObjC"
