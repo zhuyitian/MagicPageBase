@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MagicPageBase'
-  s.version          = '5.1'
+  s.version          = '5.2'
   s.summary          = 'Amazing MagicPageBase.'
 
 # This description is used to generate tags and improve search results.
@@ -46,14 +46,12 @@ Pod::Spec.new do |s|
 #  s.public_header_files = 'MagicPageBase/Classes/BaseTab/BridgingHeader.h'
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'SafariServices', 'SystemConfiguration', 'LocalAuthentication', 'iAd', 'AdSupport'
-  s.swift_version = '4.2'
-  # s.dependency 'AFNetworking', '~> 2.3'
-  # s.dependency 'Alamofire'
+  s.swift_version = '5.0'
+
+  s.dependency 'Alamofire'
   s.dependency 'Moya/RxSwift'
   s.dependency 'Kingfisher'
-#  s.dependency 'WebViewJavascriptBridge'
   s.dependency 'SnapKit'
-#  s.dependency 'GTSDK'
   s.dependency 'GoogleSignIn'
   s.dependency 'FBSDKCoreKit'
   s.dependency 'FBSDKLoginKit'
