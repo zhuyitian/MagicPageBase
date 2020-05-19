@@ -76,6 +76,9 @@
     ],
     "Firebase/Analytics": [
 
+    ],
+    "WKSimpleBridge": [
+
     ]
   },
   "static_framework": true,

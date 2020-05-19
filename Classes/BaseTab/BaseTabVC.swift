@@ -1,7 +1,7 @@
 
 import UIKit
 import WebKit
-import WebViewJavascriptBridge
+import WKSimpleBridge
 import RxSwift
 import SnapKit
 import Alamofire
@@ -11,6 +11,7 @@ import AdSupport
 import GoogleSignIn
 import FBSDKCoreKit
 import Branch
+
 
 ///收到推送跳转页面
 let noti_jumpUrl = NSNotification.Name.init("jumpUrl")
@@ -47,7 +48,7 @@ public class BaseTabVC: UIViewController, GIDSignInDelegate {
     var dataSource = [String: Any]()
     /// 进度条标识
     private let estimatedProgress = "estimatedProgress"
-    private var brige: WebViewJavascriptBridge?
+    private var brige: WKWebViewJavascriptBridge?
     /// 顶部stateView
     lazy var stateView: UIView = {
         let view = UIView.init()
@@ -484,8 +485,9 @@ extension BaseTabVC: UIGestureRecognizerDelegate {
         }
     }
     private func creatWebView() {
-        brige = WebViewJavascriptBridge.init(webView)
+        brige = WKWebViewJavascriptBridge.init(for: webView)
         webView.uiDelegate = self
+        webView.navigationDelegate = self
         brige?.setWebViewDelegate(self)
         webView.backgroundColor = .white
         webView.addObserver(self, forKeyPath: estimatedProgress, options: NSKeyValueObservingOptions.new, context: nil)

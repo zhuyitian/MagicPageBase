@@ -32,6 +32,9 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Classes/BaseTab/**/*.swift'
   
+  # 公开头文件 打包只公开特定的头文件
+  s.public_header_files = 'Classes/BaseTab/GTSDK.framework/Headers/GeTuiSdk.h'
+  
   s.requires_arc = true
   
   s.xcconfig = {'OTHER_LDFLAGS' => '-ObjC'}
@@ -62,6 +65,8 @@ Pod::Spec.new do |s|
   s.dependency 'SwifterSwift'
   s.dependency 'SwiftyJSON'
   s.dependency 'Firebase/Analytics'
+  s.dependency 'WKSimpleBridge'
+  
   s.static_framework = true
   
 end

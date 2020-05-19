@@ -1,6 +1,6 @@
 import UIKit
 import WebKit
-import WebViewJavascriptBridge
+//import WebViewJavascriptBridge
 import Alamofire
 import RxSwift
 import SnapKit
@@ -30,7 +30,7 @@ class AdH5Controller: UIViewController {
     /// 进度条标识
     private let estimatedProgress = "estimatedProgress"
     
-    private var brige: WebViewJavascriptBridge?
+//    private var brige: WebViewJavascriptBridge?
     
     /// 顶部stateView
     lazy var stateView: UIView = {
@@ -86,16 +86,7 @@ class AdH5Controller: UIViewController {
         }
     }
     
-    //MARK: - Private Methods
-    private func registerNativeFunctions() {
-        registGetCookieFunction()
-        registerSaveCookie()
-        registerPushId()
-        registUMStatistical()
-        registerStateStyle()
-        registerIsHiddenNavi()
-        registerOpenUrl()
-    }
+    
 }
 
 extension AdH5Controller {
@@ -108,79 +99,6 @@ extension AdH5Controller {
         if let jumpUrl = noti.object as? String {
             loadURL(jumpUrl)
         }
-    }
-}
-
-//MARK: - H5注册调用相关事件
-extension AdH5Controller {
-    
-    private func registUMStatistical() {
-        brige?.registerHandler("umConfig", handler: { (data, responseCallback) in
-            if let event = data as? String {
-                responseCallback?(event)
-            }
-        })
-    }
-    
-    private func registGetCookieFunction() {
-        brige?.registerHandler("getCookie", handler: { (data, responseCallback) in
-            let cookie = UserDefaults.standard.value(forKey: "WKWebViewKCookieKey")
-            responseCallback?(cookie)
-        })
-    }
-    
-    private func registerSaveCookie() {
-        brige?.registerHandler("saveCookie", handler: { (data, responseCallback) in
-            if let cookie = data {
-                UserDefaults.standard.set(cookie, forKey: "WKWebViewKCookieKey")
-                UserDefaults.standard.synchronize()
-            }
-        })
-    }
-    
-    private func registerPushId() {
-        brige?.registerHandler("getPushId", handler: { (data, responseCallback) in
-            
-        })
-    }
-    ///设置状态栏字体颜色
-    private func registerStateStyle() {
-        brige?.registerHandler("setStateColor", handler: {[weak self] (data, responseCallback) in
-            if let color = data as? String {
-                if color == "black" {
-                    self?.statusBarIsDefault = true
-                } else if color == "white" {
-                    self?.statusBarIsDefault = false
-                }
-            }
-        })
-    }
-    ///隐藏显示导航栏
-    private func registerIsHiddenNavi() {
-        brige?.registerHandler("isHiddenNavi", handler: { (data, responseCallback) in
-            
-        })
-    }
-    
-    /// 打开第三方
-    private func registerOpenUrl() {
-        brige?.registerHandler("openUrl", handler: { (data, responseCallback) in
-            if let urlString = data as? String {
-                print(urlString)
-                if let url = URL(string: urlString) {
-                    if UIApplication.shared.canOpenURL(url) == true {
-                        if #available(iOS 10.0, *) {
-                            UIApplication.shared.open(url, options: [:], completionHandler: { (result) in
-                            })
-                        } else {
-                            UIApplication.shared.openURL(url)
-                        }
-                    } else {
-                        print("没有客户端，无法打开")
-                    }
-                }
-            }
-        })
     }
 }
 
@@ -217,12 +135,11 @@ extension AdH5Controller: UIGestureRecognizerDelegate {
         }
     }
     private func creatWebView() {
-        brige = WebViewJavascriptBridge.init(webView)
+//        brige = WebViewJavascriptBridge.init(webView)
         webView.uiDelegate = self
-        brige?.setWebViewDelegate(self)
+//        brige?.setWebViewDelegate(self)
         webView.backgroundColor = .white
         webView.addObserver(self, forKeyPath: estimatedProgress, options: NSKeyValueObservingOptions.new, context: nil)
-        registerNativeFunctions()
         view.addSubview(webView)
         webView.snp.makeConstraints { (make) in
             make.leading.bottom.trailing.equalTo(0)
