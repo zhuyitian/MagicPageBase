@@ -32,18 +32,17 @@ NS_ASSUME_NONNULL_BEGIN
 
  SUPPORTED SHARE TYPES
  - FBSDKShareLinkContent
- - FBSDKShareMessengerOpenGraphMusicTemplateContent
- - FBSDKShareMessengerMediaTemplateContent
- - FBSDKShareMessengerGenericTemplateContent
 
  UNSUPPORTED SHARE TYPES (DEPRECATED AUGUST 2018)
  - FBSDKShareOpenGraphContent
  - FBSDKSharePhotoContent
  - FBSDKShareVideoContent
+ - FBSDKShareMessengerOpenGraphMusicTemplateContent
+ - FBSDKShareMessengerMediaTemplateContent
+ - FBSDKShareMessengerGenericTemplateContent
  - Any other types that are not one of the four supported types listed above
  */
 NS_SWIFT_NAME(MessageDialog)
-DEPRECATED_FOR_MESSENGER
 @interface FBSDKMessageDialog : NSObject <FBSDKSharingDialog>
 
 /**

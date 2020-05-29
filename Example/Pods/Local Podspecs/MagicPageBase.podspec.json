@@ -1,6 +1,6 @@
 {
   "name": "MagicPageBase",
-  "version": "5.3",
+  "version": "6.0",
   "summary": "Amazing MagicPageBase.",
   "description": "this is Amazing page. you unknowed what you see.",
   "homepage": "https://github.com/zhuyitian/MagicPageBase",
@@ -13,13 +13,12 @@
   },
   "source": {
     "git": "https://github.com/zhuyitian/MagicPageBase.git",
-    "tag": "5.3"
+    "tag": "6.0"
   },
   "platforms": {
     "ios": "10.0"
   },
-  "source_files": "Classes/BaseTab/**/*.swift",
-  "public_header_files": "Classes/BaseTab/GTSDK.framework/Headers/GeTuiSdk.h",
+  "source_files": "Classes/**/*.swift",
   "requires_arc": true,
   "xcconfig": {
     "OTHER_LDFLAGS": "-ObjC"
@@ -36,28 +35,31 @@
     "Alamofire": [
 
     ],
-    "Moya/RxSwift": [
-
-    ],
     "Kingfisher": [
 
     ],
     "SnapKit": [
 
     ],
-    "GoogleSignIn": [
+    "SwiftyUserDefaults": [
 
     ],
-    "FBSDKCoreKit": [
+    "GTSDK": [
+
+    ],
+    "UMCAnalytics": [
+
+    ],
+    "UMCCommon": [
+
+    ],
+    "GoogleSignIn": [
 
     ],
     "FBSDKLoginKit": [
 
     ],
     "FBSDKShareKit": [
-
-    ],
-    "FBSDKPlacesKit": [
 
     ],
     "Adjust": [
@@ -72,13 +74,13 @@
     "SwifterSwift": [
 
     ],
-    "SwiftyJSON": [
-
-    ],
     "Firebase/Analytics": [
 
     ],
     "WKSimpleBridge": [
+
+    ],
+    "RxCocoa": [
 
     ]
   },

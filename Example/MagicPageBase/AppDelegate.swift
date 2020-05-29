@@ -21,10 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let vc = BaseTabVC.init(host: "https://www.baidu.com", googleId: "")
 //        window?.rootViewController = vc
 //        BaseTabVC.init(json: <#T##[String : Any]#>, googleId: <#T##String#>)
-        let vc = BaseTabVC.init(vHost: "https://api.abkja.com", vCode: "9B23CYMR", googleId: "")
+//        let vc = BaseTabVC.init(vHost: "https://api.abkja.com", vCode: "9B23CYMR", googleId: "")
         
-        window?.rootViewController = vc
-        window?.makeKeyAndVisible()
+        
+//        window?.rootViewController = vc
+//        window?.makeKeyAndVisible()
         
         return true
     }

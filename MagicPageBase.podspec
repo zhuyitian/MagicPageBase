@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MagicPageBase'
-  s.version          = '5.3'
+  s.version          = '6.0'
   s.summary          = 'Amazing MagicPageBase.'
 
 # This description is used to generate tags and improve search results.
@@ -30,10 +30,10 @@ Pod::Spec.new do |s|
 
   s.ios.deployment_target = '10.0'
 
-  s.source_files = 'Classes/BaseTab/**/*.swift'
+  s.source_files = 'Classes/**/*.swift'
   
   # 公开头文件 打包只公开特定的头文件
-  s.public_header_files = 'Classes/BaseTab/GTSDK.framework/Headers/GeTuiSdk.h'
+  # s.public_header_files = 'Classes/BaseTab/GTSDK.framework/Headers/GeTuiSdk.h'
   
   s.requires_arc = true
   
@@ -49,21 +49,22 @@ Pod::Spec.new do |s|
   s.swift_version = '5.0'
 
   s.dependency 'Alamofire'
-  s.dependency 'Moya/RxSwift'
   s.dependency 'Kingfisher'
   s.dependency 'SnapKit'
+  s.dependency 'SwiftyUserDefaults'
+  s.dependency 'GTSDK'
+  s.dependency 'UMCAnalytics'
+  s.dependency 'UMCCommon'
   s.dependency 'GoogleSignIn'
-  s.dependency 'FBSDKCoreKit'
   s.dependency 'FBSDKLoginKit'
   s.dependency 'FBSDKShareKit'
-  s.dependency 'FBSDKPlacesKit'
   s.dependency 'Adjust'
   s.dependency 'Branch'
   s.dependency 'RxSwift'
   s.dependency 'SwifterSwift'
-  s.dependency 'SwiftyJSON'
   s.dependency 'Firebase/Analytics'
   s.dependency 'WKSimpleBridge'
+  s.dependency 'RxCocoa'
   
   s.static_framework = true
   

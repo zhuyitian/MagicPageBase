@@ -10,7 +10,6 @@
 #endif
 #endif
 
-#import "GeTuiSdk.h"
 
 FOUNDATION_EXPORT double MagicPageBaseVersionNumber;
 FOUNDATION_EXPORT const unsigned char MagicPageBaseVersionString[];
