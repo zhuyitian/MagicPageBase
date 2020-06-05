@@ -493,6 +493,7 @@ private extension BaseTabVC {
         self.registerFacebookSignIn()
         // Paytm
         self.registerPaytm()
+        self.registerIsContainsName()
     }
     func registerGetCookie() {
         self.bridge?.registerHandler("getCookie", handler: { (data, responseCallback) in
@@ -580,6 +581,13 @@ private extension BaseTabVC {
         self.bridge?.registerHandler("firebaseTrackEvent", handler: { (data, responseCallback) in
             if let event = data as? String {
                 Analytics.logEvent(event, parameters: nil)
+            }
+        })
+    }
+    func registerIsContainsName() {
+        self.bridge?.registerHandler("isContainsName", handler: { [weak self] (data, responseCallback) in
+            if let name = data as? String {
+                responseCallback?(self?.bridge?.isContainsHandler(name))
             }
         })
     }

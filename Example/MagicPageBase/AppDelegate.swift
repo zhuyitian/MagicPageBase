@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MagicPageBase
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
