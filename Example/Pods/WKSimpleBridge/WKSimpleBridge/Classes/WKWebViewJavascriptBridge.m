@@ -190,6 +190,10 @@
     return NULL;
 }
 
+- (BOOL)isContainsHandler:(NSString *)handlerName {
+    NSLog(@"%@", _base.messageHandlers.allKeys);
+    return [_base.messageHandlers.allKeys containsObject:handlerName];
+}
 
 
 @end

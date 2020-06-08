@@ -46,7 +46,7 @@ class AdH5VC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
-        self.loadURL(Defaults[.AdvUrl] ?? "")
+        self.loadURL(Defaults[key: DefaultsKeys.AdvUrl] ?? "")
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -101,7 +101,7 @@ private extension AdH5VC {
     }
     func reload() {
         if Double(UIDevice.current.systemVersion) ?? 0 > 9.0 , Double(UIDevice.current.systemVersion) ?? 0 < 10.0 {
-            self.loadURL(Defaults[.AdvUrl] ?? "")
+            self.loadURL(Defaults[key: DefaultsKeys.AdvUrl] ?? "")
         }else {
             self.webView.reload()
         }

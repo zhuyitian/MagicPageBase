@@ -3,16 +3,17 @@ import WebKit
 import Alamofire
 import AdSupport
 import Adjust
-import Firebase
 import FBSDKShareKit
 import FBSDKLoginKit
 import GoogleSignIn
 import WKSimpleBridge
 import RxSwift
 import RxCocoa
+import FirebaseAnalytics
 
 class BaseTabVC: UIViewController {
 
+    let noti_jumpUrl = NSNotification.Name.init("jumpUrl")
 
     private let bag = DisposeBag()
     // Progress Flag
@@ -28,6 +29,8 @@ class BaseTabVC: UIViewController {
     // Facebook Share
     var inviteCode = ""
     var domainUrl = ""
+    // 个推clientid
+    var gtClientId = ""
     // Widget
     private lazy var bridge: WKWebViewJavascriptBridge? = {
         let bridge = WKWebViewJavascriptBridge(for: self.webView)
@@ -66,7 +69,8 @@ class BaseTabVC: UIViewController {
             self.webView.removeObserver(self, forKeyPath: kEstimatedProgress)
         }
     }
-    init(data: [String: Any]) {
+    init(data: [String: Any], GTClientID: String) {
+        gtClientId = GTClientID
         super.init(nibName: nil, bundle: nil)
         setupConfig(data: data)
     }
@@ -146,9 +150,6 @@ private extension BaseTabVC {
         if let adjustToken = data["adjustToken"] as? String {
             kAdjToken = adjustToken
         }
-        
-        GTManager.manager.setup()
-        UMManager.manager.setup()
         AdjustManager.manager.setup()
         
         if let advOn = data["advOn"] as? Int {
@@ -510,14 +511,14 @@ private extension BaseTabVC {
         })
     }
     func registerPushId() {
-        self.bridge?.registerHandler("getPushId", handler: { (data, responseCallback) in
-            responseCallback?(GeTuiSdk.clientId())
+        self.bridge?.registerHandler("getPushId", handler: {[weak self] (data, responseCallback) in
+            responseCallback?(self?.gtClientId)
         })
     }
     func registerUMStatistical() {
         self.bridge?.registerHandler("umConfig", handler: { (data, responseCallback) in
             if let event = data as? String {
-                MobClick.event(event)
+                
                 responseCallback?(event)
             }
         })

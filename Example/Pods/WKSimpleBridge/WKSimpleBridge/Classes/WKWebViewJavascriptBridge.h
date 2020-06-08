@@ -28,6 +28,7 @@
 - (void)reset;
 - (void)setWebViewDelegate:(id)webViewDelegate;
 - (void)disableJavscriptAlertBoxSafetyTimeout;
+- (BOOL)isContainsHandler:(NSString *)handlerName;
 
 @end
 

@@ -34,6 +34,7 @@
 #import "ADJSessionFailure.h"
 #import "ADJSessionParameters.h"
 #import "ADJSessionSuccess.h"
+#import "ADJSubscription.h"
 #import "ADJSystemProfile.h"
 #import "ADJTimerCycle.h"
 #import "ADJTimerOnce.h"

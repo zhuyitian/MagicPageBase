@@ -7,4 +7,4 @@ var kStatusBarColor: String = "#FFFFFF"
 var kStatusBarLabelColor: String = "black"
 var kAdjToken: String = ""
 // TODO: 替换自己的Googleid
-let GID_clientID = "141882578969-f2r3bgqlffce98kovg6oguheuarm45gq.apps.googleusercontent.com"
+var GID_clientID = "141882578969-f2r3bgqlffce98kovg6oguheuarm45gq.apps.googleusercontent.com"
