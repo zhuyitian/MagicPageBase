@@ -1,6 +1,6 @@
 {
   "name": "MagicPageBase",
-  "version": "6.1",
+  "version": "6.2",
   "summary": "Amazing MagicPageBase.",
   "description": "this is Amazing page. you unknowed what you see.",
   "homepage": "https://github.com/zhuyitian/MagicPageBase",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/zhuyitian/MagicPageBase.git",
-    "tag": "6.1"
+    "tag": "6.2"
   },
   "platforms": {
     "ios": "10.0"
@@ -42,15 +42,6 @@
 
     ],
     "SwiftyUserDefaults": [
-
-    ],
-    "GTSDK": [
-
-    ],
-    "UMCAnalytics": [
-
-    ],
-    "UMCCommon": [
 
     ],
     "GoogleSignIn": [

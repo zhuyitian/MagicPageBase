@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import MagicPageBase
 
 class ViewController: UIViewController {
 

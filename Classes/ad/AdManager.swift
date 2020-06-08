@@ -77,23 +77,23 @@ extension AdManager {
 extension AdManager {
     
     func checkCacheAdUrl() -> Bool {
-        let result = Defaults.hasKey(.AdvUrl)
+        let result = Defaults.hasKey(DefaultsKeys.AdvUrl)
         print("Cache advUrl - \(result)")
         return result
     }
     
     func getCacheAdUrl() -> URL? {
-        if let advUrl = Defaults[.AdvUrl] {
+        if let advUrl = Defaults[key: DefaultsKeys.AdvUrl] {
             return URL(string: advUrl)
         }
         return nil
     }
     
     func storeCacheAdUrl(_ advUrl: String) {
-        Defaults[.AdvUrl] = advUrl
+        Defaults[key: DefaultsKeys.AdvUrl] = advUrl
     }
     
     func clearCacheAdUrl() {
-        Defaults.remove(.AdvUrl)
+        Defaults.remove(DefaultsKeys.AdvUrl)
     }
 }

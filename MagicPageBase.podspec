@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MagicPageBase'
-  s.version          = '6.2'
+  s.version          = '6.3'
   s.summary          = 'Amazing MagicPageBase.'
 
 # This description is used to generate tags and improve search results.
@@ -52,9 +52,6 @@ Pod::Spec.new do |s|
   s.dependency 'Kingfisher'
   s.dependency 'SnapKit'
   s.dependency 'SwiftyUserDefaults'
-  s.dependency 'GTSDK'
-  s.dependency 'UMCAnalytics'
-  s.dependency 'UMCCommon'
   s.dependency 'GoogleSignIn'
   s.dependency 'FBSDKLoginKit'
   s.dependency 'FBSDKShareKit'
