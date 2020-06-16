@@ -31,6 +31,9 @@ public class BaseTabVC: UIViewController {
     var domainUrl = ""
     // 个推clientid
     var gtClientId = ""
+    
+    var isFirstOpen = true
+    let sysVersion = UIDevice.current.systemVersion
     // Widget
     private lazy var bridge: WKWebViewJavascriptBridge? = {
         let bridge = WKWebViewJavascriptBridge(for: self.webView)
@@ -614,6 +617,10 @@ extension BaseTabVC: WKUIDelegate, WKNavigationDelegate {
     public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         if webView.title != "undefined" {
             self.title = webView.title
+        }
+        if isFirstOpen && sysVersion.starts(with: "12.") {
+            isFirstOpen = false
+            webView.reload()
         }
     }
     public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
