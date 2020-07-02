@@ -436,7 +436,7 @@ extension BaseTabVC: GIDSignInDelegate {
             let dic = [
                 "id": user.userID ?? "",
                 "name": user.profile.name ?? "",
-                "email": user.profile.email,
+                "email": user.profile.email ?? "",
                 "sign": "\(self.sign)",
                 "type": "1"
                 ] as [String : String]

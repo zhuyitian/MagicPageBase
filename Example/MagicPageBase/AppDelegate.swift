@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import MagicPageBase
+//import MagicPageBase
 
 
 
@@ -24,10 +24,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        window?.rootViewController = vc
 //        BaseTabVC.init(json: <#T##[String : Any]#>, googleId: <#T##String#>)
 //        let vc = BaseTabVC.init(vHost: "https://api.abkja.com", vCode: "9B23CYMR", googleId: "")
-        
-        
-//        window?.rootViewController = vc
-//        window?.makeKeyAndVisible()
+        let vc = UIViewController.init(nibName: nil, bundle: nil)
+        window?.rootViewController = vc
+        window?.makeKeyAndVisible()
         
         return true
     }
